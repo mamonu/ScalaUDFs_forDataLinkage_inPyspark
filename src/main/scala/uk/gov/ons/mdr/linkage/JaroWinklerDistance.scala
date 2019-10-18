@@ -1,7 +1,7 @@
 /**
   * Simple Scala wrapper to turn an existing string distance function into a UDF
   */
-package uk.gov.ons.mdr.examples
+package uk.gov.ons.mdr.linkage
 
 import org.apache.spark.sql.api.java.UDF2
 import org.apache.commons.text.similarity
