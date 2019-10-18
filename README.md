@@ -7,10 +7,10 @@ https://github.com/ONSBigData/scala_udf_example
 from @philip-lee-ons
 
 
-Phillip has created an example of a UDF defined in Scala, callable from PySpark.
+Phillip has created an example of a UDF defined in Scala, callable from PySpark,
 that wraps a call to JaroWinklerDistance from Apache commons.
 
-My intention is to add more distances and similarities from Apache commons for use in fuzzy matching in Pyspark
+My intention is to add more string distances and similarities from Apache commons for use in fuzzy matching in Pyspark
 
 
 
@@ -29,5 +29,6 @@ To register the function with PySpark:
 
 ```python
 sqlContext = SQLContext(spark.sparkContext)
-sqlContext.registerJavaFunction('jaro_winkler', 'uk.gov.ons.mdr.linkage.JaroWinklerDistance', pyspark.sql.types.DoubleType())
+sqlContext.registerJavaFunction('jaro_winkler', 'uk.gov.ons.mdr.linkage.JaroWinklerDistance',\ 
+                                pyspark.sql.types.DoubleType())
 ```
