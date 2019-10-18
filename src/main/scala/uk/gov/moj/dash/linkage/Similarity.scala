@@ -1,7 +1,7 @@
 /**
   * Simple Scala wrapper to turn an existing string similarity function into a UDF
   */
-package uk.gov.ons.mdr.linkage
+package uk.gov.moj.dash.linkage
 
 import org.apache.spark.sql.api.java.UDF2
 import org.apache.commons.text.similarity
