@@ -10,7 +10,8 @@ from @philip-lee-ons
 Phillip has created an example of a UDF defined in Scala, callable from PySpark,
 that wraps a call to JaroWinklerDistance from Apache commons.
 
-My intention is to add more string distances and similarities from Apache commons for use in fuzzy matching in Pyspark
+My intention is to add [more text distances and similarities from Apache Commons](https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/similarity/package-summary.html) 
+for use in fuzzy matching in Pyspark
 
 
 
