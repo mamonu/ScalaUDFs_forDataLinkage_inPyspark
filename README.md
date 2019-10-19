@@ -1,10 +1,8 @@
 # Using Scala UDFs for Data Linkage in Pyspark
 
-an extension of 
+an extension of the example provided in [1]
 
-## Using a Scala UDF Example
-https://github.com/ONSBigData/scala_udf_example
-from @philip-lee-ons
+
 
 
 Phillip has created an example of a UDF defined in Scala, callable from PySpark,
@@ -33,12 +31,20 @@ To add the jar to PySpark set the following config:
     spark.driver.extraClassPath /path/to/jarfile.jar
     spark.jars /path/to/jarfile.jar
     
-To register the function with PySpark 2.3.1:
+To register the functions with PySpark 2.3.1:
 
 ```python
 
-spark.udf.registerJavaFunction('jaro_winkler', 'uk.gov.moj.dash.linkage.JaroWinklerDistance',\ 
+spark.udf.registerJavaFunction('jaro_winkler', 'uk.gov.moj.dash.linkage.JaroWinklerSimilarity',\ 
                                 pyspark.sql.types.DoubleType())
+                                
+                                
+spark.udf.registerJavaFunction('jaccard_sim', 'uk.gov.moj.dash.linkage.JaccardSimilarity',\ 
+                                pyspark.sql.types.DoubleType())                          
+                                
+spark.udf.registerJavaFunction('cosine_distance', 'uk.gov.moj.dash.linkage.CosineDistance',\ 
+                                pyspark.sql.types.DoubleType())
+                                
 ```
 
 
@@ -69,8 +75,9 @@ If you dont have one ,installing either OpenJDK or [AWS Correto JDK](https://aws
 
 
 
+## References:
 
-
+[1] [Using a Scala UDF Example](https://github.com/ONSBigData/scala_udf_example)  @philip-lee-ons
 
 
 
