@@ -48,19 +48,24 @@ Maven is written in Java (and primarily used for building JVM programs).
 * the major Maven prerequisite is a Java JDK. 
 If you dont have one ,installing either OpenJDK or [AWS Correto JDK](https://aws.amazon.com/blogs/opensource/amazon-corretto-no-cost-distribution-openjdk-long-term-support/) is recommended.Oracle JDK is not anymore.
 
+
+
 * To install Maven on Mac OS X operating system, download the latest version from the Apache Maven site, select the Maven binary tar.gz file, for example: apache-maven-3.3.9-bin.tar.gz to to Downloads/ 
 
-* Extract the archive with `tar -xzfv apache-maven-3.3.9-bin.tar.gz`
+    * Extract the archive with `tar -xzfv apache-maven-3.3.9-bin.tar.gz`
 
-* `sudo chown -R root:wheel Downloads/apache-maven*` for fixing permissions.
+    * On the shell prompt: `sudo chown -R root:wheel Downloads/apache-maven*` for fixing permissions.
 
-* `sudo mv Downloads/apache-maven* /opt/apache-maven`
+    * On the shell prompt: `sudo mv Downloads/apache-maven* /opt/apache-maven`
 
-* Edit your .bashprofile with `nano ~/.bash_profile` and add  `export PATH=$PATH:/opt/apache-maven/bin` there
-
+    * Edit your .bashprofile with `nano ~/.bash_profile` and add  `export PATH=$PATH:/opt/apache-maven/bin` there
+    
+    
+* To install Maven on a Debian based Linux distribution (such as Ubuntu) there is an easier way: `sudo apt-get install maven`
+ 
 * Test that everything has been installed fine by running `java -version` and `mvn -version`  on your bash prompt
 
-* Then its time to   `mvn package`
+* Then `mvn package`
 
 
 
