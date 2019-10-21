@@ -13,6 +13,8 @@ for use in fuzzy matching in Pyspark
 
 ## Progress
 
+v.0.0.2
+
 * JaroWinklerSimilarity has been used instead of JaroWinklerDistance 
 * Added CosineDistance and JaccardSimilarity from Apache Commons
 
