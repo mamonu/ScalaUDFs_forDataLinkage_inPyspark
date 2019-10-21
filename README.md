@@ -18,6 +18,9 @@ v.0.0.2
 * JaroWinklerSimilarity has been used instead of JaroWinklerDistance 
 * Added CosineDistance and JaccardSimilarity from Apache Commons
 
+v.0.0.1
+
+* get this mechanism working and output JaroWinklerDistance jar. Test that its working on AP.
 
 
 
