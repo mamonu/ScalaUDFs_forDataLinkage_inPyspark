@@ -1,4 +1,4 @@
-package uk.gov.ons.mdr.examples
+package uk.gov.moj.dash.linkage
 
 import org.scalactic.TolerantNumerics
 import org.scalatest._
@@ -9,7 +9,7 @@ class JaroWinklerDistanceTest extends FlatSpec with Matchers {
 
     "Wrapped JaroWinkler" should "return same results" in {
 
-        val distance = JaroWinklerDistance()
+        val distance = JaroWinklerSimilarity()
 
         distance.call("","") should equal (0.0)
         distance.call("","a") should equal (0.0)

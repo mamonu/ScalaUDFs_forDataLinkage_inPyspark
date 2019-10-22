@@ -1,7 +1,7 @@
 /**
   * Timed run of JaroWinklerDistance
   */
-package uk.gov.ons.mdr.examples
+package uk.gov.moj.dash.linkage
 
 import java.io.InputStream
 

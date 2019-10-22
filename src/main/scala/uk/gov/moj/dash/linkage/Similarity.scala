@@ -6,6 +6,8 @@ package uk.gov.moj.dash.linkage
 import org.apache.spark.sql.api.java.UDF2
 import org.apache.commons.text.similarity
 
+
+
 class JaroWinklerSimilarity extends UDF2[String, String, Double] {
   override  def call(left: String, right: String): Double = {
     // This has to be instantiated here (i.e. on the worker node)
