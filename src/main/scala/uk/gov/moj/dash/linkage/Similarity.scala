@@ -1,10 +1,38 @@
 /**
-  * Simple Scala wrapper to turn an existing string similarity function into a UDF
+  * Simple Scala wrappers to turn an existing string similarity functions into UDFs
   */
 package uk.gov.moj.dash.linkage
 
+
+import org.apache.spark.sql.functions.udf
 import org.apache.spark.sql.api.java.UDF2
+import org.apache.spark.sql.api.java.UDF1
+
+
 import org.apache.commons.text.similarity
+
+import org.apache.commons.codec.language
+
+
+
+
+class DoubleMetaphone extends UDF1[String, String] {
+  override  def call(input: String): String = {
+    // This has to be instantiated here (i.e. on the worker node)
+   
+
+    val  m = new language.DoubleMetaphone()
+    m.doubleMetaphone(input)
+  }
+}
+
+object DoubleMetaphone {
+  def apply(): DoubleMetaphone = {
+    new DoubleMetaphone()
+  }
+}
+
+
 
 
 
@@ -21,7 +49,6 @@ object JaroWinklerSimilarity {
     new JaroWinklerSimilarity()
   }
 }
-
 
 
 class JaccardSimilarity extends UDF2[String, String, Double] {

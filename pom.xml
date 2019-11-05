@@ -2,8 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>uk.gov.moj.dash.linkage</groupId>
   <artifactId>scala-udf-similarity</artifactId>
-  <version>0.0.2</version>
-
+  <version>0.0.4</version>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -11,7 +10,6 @@
     <scala.compat.version>2.11</scala.compat.version>
     <encoding>UTF-8</encoding>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.scala-lang</groupId>
@@ -35,6 +33,16 @@
       <artifactId>spark-sql_${scala.compat.version}</artifactId>
       <version>2.2.0</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.5</version>
+    </dependency>
+    <dependency>
+      <groupId>com.rockymadden.stringmetric</groupId>
+      <artifactId>stringmetric_2.11</artifactId>
+      <version>0.27.4</version>
     </dependency>
     <dependency>
       <groupId>org.scalatest</groupId>

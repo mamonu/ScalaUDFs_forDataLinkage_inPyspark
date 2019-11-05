@@ -3,7 +3,7 @@ package uk.gov.moj.dash.linkage
 import org.scalactic.TolerantNumerics
 import org.scalatest._
 
-class JaroWinklerDistanceTest extends FlatSpec with Matchers {
+class JaroWinklerSimilarityTest extends FlatSpec with Matchers {
 
     implicit val doubleEquality = TolerantNumerics.tolerantDoubleEquality(0.01)
 
