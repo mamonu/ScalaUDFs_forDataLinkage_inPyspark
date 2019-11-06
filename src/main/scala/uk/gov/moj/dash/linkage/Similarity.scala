@@ -10,7 +10,6 @@ import org.apache.spark.sql.api.java.UDF1
 
 
 import org.apache.commons.text.similarity
-
 import org.apache.commons.codec.language
 
 
@@ -31,6 +30,24 @@ object DoubleMetaphone {
     new DoubleMetaphone()
   }
 }
+
+
+class QgramTokeniser extends UDF1[String, String] {
+  override  def call(input: String): String = {
+    // This has to be instantiated here (i.e. on the worker node)
+   
+    input.sliding(2).toList.mkString(" ")  
+     
+  }
+}
+
+object QgramTokeniser {
+  def apply(): QgramTokeniser = {
+    new QgramTokeniser()
+  }
+}
+
+
 
 
 
