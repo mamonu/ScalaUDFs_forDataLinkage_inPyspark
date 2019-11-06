@@ -13,6 +13,16 @@ for use in fuzzy matching in Pyspark
 
 ## Progress
 
+
+v.0.0.4
+
+* Added Double Metaphone from Apache Commons  ( org.apache.commons.codec.language._ )
+
+
+v.0.0.3
+
+* cleaning up and housekeeping
+
 v.0.0.2
 
 * JaroWinklerSimilarity has been used instead of JaroWinklerDistance 
