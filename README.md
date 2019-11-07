@@ -14,6 +14,11 @@ for use in fuzzy matching in Pyspark
 ## Progress
 
 
+
+v.0.0.5
+
+* Added a small QgramTokeniser 
+
 v.0.0.4
 
 * Added Double Metaphone from Apache Commons  ( org.apache.commons.codec.language._ )
