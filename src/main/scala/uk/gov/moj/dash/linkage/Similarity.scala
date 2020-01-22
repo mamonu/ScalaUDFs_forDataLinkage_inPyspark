@@ -48,8 +48,88 @@ object QgramTokeniser {
 }
 
 
+class Q2gramTokeniser extends UDF1[String, String] {
+  override  def call(input: String): String = {
+    // This has to be instantiated here (i.e. on the worker node)
+   
+    input.sliding(2).toList.mkString(" ")  
+     
+  }
+}
+
+object Q2gramTokeniser {
+  def apply(): Q2gramTokeniser = {
+    new Q2gramTokeniser()
+  }
+}
 
 
+
+
+class Q3gramTokeniser extends UDF1[String, String] {
+  override  def call(input: String): String = {
+    // This has to be instantiated here (i.e. on the worker node)
+   
+    input.sliding(3).toList.mkString(" ")  
+     
+  }
+}
+
+object Q3gramTokeniser {
+  def apply(): Q3gramTokeniser = {
+    new Q3gramTokeniser()
+  }
+}
+
+
+
+class Q4gramTokeniser extends UDF1[String, String] {
+  override  def call(input: String): String = {
+    // This has to be instantiated here (i.e. on the worker node)
+   
+    input.sliding(4).toList.mkString(" ")  
+     
+  }
+}
+
+object Q4gramTokeniser {
+  def apply(): Q4gramTokeniser = {
+    new Q4gramTokeniser()
+  }
+}
+
+
+
+class Q5gramTokeniser extends UDF1[String, String] {
+  override  def call(input: String): String = {
+    // This has to be instantiated here (i.e. on the worker node)
+   
+    input.sliding(5).toList.mkString(" ")  
+     
+  }
+}
+
+object Q5ramTokeniser {
+  def apply(): Q5gramTokeniser = {
+    new Q5gramTokeniser()
+  }
+}
+
+
+class Q6gramTokeniser extends UDF1[String, String] {
+  override  def call(input: String): String = {
+    // This has to be instantiated here (i.e. on the worker node)
+   
+    input.sliding(6).toList.mkString(" ")  
+     
+  }
+}
+
+object Q6gramTokeniser {
+  def apply(): Q6gramTokeniser = {
+    new Q6gramTokeniser()
+  }
+}
 
 
 
