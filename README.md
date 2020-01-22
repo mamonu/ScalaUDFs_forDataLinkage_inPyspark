@@ -13,7 +13,9 @@ for use in fuzzy matching in Pyspark
 
 ## Progress
 
+v.0.0.6
 
+* Added QgramTokenisers for Q3grams,Q4grams,Q5grams,Q6grams 
 
 v.0.0.5
 
