@@ -1,5 +1,5 @@
 
-To add to v0.6.6
+To add to v0.0.6
 
 
 1)  Add the alternate encoding of Double Metaphone from Apache Commons
