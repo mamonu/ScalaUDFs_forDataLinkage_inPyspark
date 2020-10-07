@@ -4,6 +4,7 @@
 package uk.gov.moj.dash.linkage
 
 import org.apache.spark.sql.types._
+import org.apache.spark.sql.expressions.UserDefinedFunction
 
 import org.apache.spark.sql.functions.udf
 import org.apache.spark.sql.api.java.UDF2
@@ -221,5 +222,27 @@ class CosineDistance extends UDF2[String, String, Double] {
 object CosineDistance {
   def apply(): CosineDistance = {
     new CosineDistance()
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+class DualArrayExplode extends UDF2[Seq[String], Seq[String], UserDefinedFunction] {
+  override  def call(x: Seq[String], y: Seq[String]):UserDefinedFunction = {
+    // This has to be instantiated here (i.e. on the worker node)
+    // function to do what we want 
+  val DualArrayExplode =  (x: Seq[String], y: Seq[String]) => {for (a <- x; b <-y) yield (a,b)}
+  val DualArrayExplodeUDF = udf (DualArrayExplode)
+
+  return DualArrayExplodeUDF
+
   }
 }
