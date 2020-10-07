@@ -21,12 +21,25 @@ class Logit extends UDF1[Double, Double] {
   override def call(x: Double): Double = log(x / (1.0 - x))
 }
 
+
+object Logit {
+  def apply(): Logit = {
+    new Logit()
+  }
+}
+
+
+
 class Expit extends UDF1[Double, Double] {
   override def call(x: Double): Double = 1.0 / (1.0 + exp(-x))
 }
 
 
-
+object Expit {
+  def apply(): Expit = {
+    new Expit()
+  }
+}
 
 
 class DoubleMetaphone extends UDF1[String, String] {
