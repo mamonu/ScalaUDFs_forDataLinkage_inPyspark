@@ -3,6 +3,7 @@
   */
 package uk.gov.moj.dash.linkage
 
+import org.apache.spark.sql.types._
 
 import org.apache.spark.sql.functions.udf
 import org.apache.spark.sql.api.java.UDF2
@@ -11,6 +12,19 @@ import org.apache.spark.sql.api.java.UDF1
 
 import org.apache.commons.text.similarity
 import org.apache.commons.codec.language
+
+
+import scala.math.log
+import scala.math.exp
+ 
+class Logit extends UDF1[Double, Double] {
+  override def call(x: Double): Double = log(x / (1.0 - x))
+}
+
+class Expit extends UDF1[Double, Double] {
+  override def call(x: Double): Double = 1.0 / (1.0 + exp(-x))
+}
+
 
 
 
@@ -30,6 +44,25 @@ object DoubleMetaphone {
     new DoubleMetaphone()
   }
 }
+
+
+
+class DoubleMetaphoneAlt extends UDF1[String, String] {
+  override  def call(input: String): String = {
+    // This has to be instantiated here (i.e. on the worker node)
+   
+
+    val  m = new language.DoubleMetaphone()
+    m.doubleMetaphone(input,true)
+  }
+}
+
+object DoubleMetaphoneAlt {
+  def apply(): DoubleMetaphoneAlt = {
+    new DoubleMetaphoneAlt()
+  }
+}
+
 
 
 class QgramTokeniser extends UDF1[String, String] {
@@ -109,7 +142,7 @@ class Q5gramTokeniser extends UDF1[String, String] {
   }
 }
 
-object Q5ramTokeniser {
+object Q5gramTokeniser {
   def apply(): Q5gramTokeniser = {
     new Q5gramTokeniser()
   }
