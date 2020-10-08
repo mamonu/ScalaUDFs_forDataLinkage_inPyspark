@@ -227,14 +227,6 @@ object CosineDistance {
 
 
 
-
-
-
-
-
-
-
-
 class DualArrayExplode extends UDF2[Seq[String], Seq[String], UserDefinedFunction] {
   override  def call(x: Seq[String], y: Seq[String]):UserDefinedFunction = {
     // This has to be instantiated here (i.e. on the worker node)
@@ -244,5 +236,11 @@ class DualArrayExplode extends UDF2[Seq[String], Seq[String], UserDefinedFunctio
 
   return DualArrayExplodeUDF
 
+  }
+}
+
+object DualArrayExplode {
+  def apply(): DualArrayExplode = {
+    new DualArrayExplode()
   }
 }
