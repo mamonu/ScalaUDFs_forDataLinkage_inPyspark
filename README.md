@@ -11,7 +11,17 @@ that wraps a call to JaroWinklerDistance from Apache commons.
 My intention is to add [more text distance and similarity metrics from Apache Commons](https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/similarity/package-summary.html) 
 for use in fuzzy matching in Pyspark
 
+
+
+
+
 ## Progress
+
+
+v.0.0.7
+
+* Added DualArrayExplode UDF . Also added Logit and Expit UDFs
+
 
 v.0.0.6
 
@@ -53,7 +63,7 @@ To add the jar to PySpark set the following config:
     spark.driver.extraClassPath /path/to/jarfile.jar
     spark.jars /path/to/jarfile.jar
     
-To register the functions with PySpark 2.3.1:
+To register the functions with PySpark > 2.3.1:
 
 ```python
 
@@ -66,6 +76,17 @@ spark.udf.registerJavaFunction('jaccard_sim', 'uk.gov.moj.dash.linkage.JaccardSi
                                 
 spark.udf.registerJavaFunction('cosine_distance', 'uk.gov.moj.dash.linkage.CosineDistance',\ 
                                 pyspark.sql.types.DoubleType())
+                                
+
+
+from pyspark.sql import types as T
+rt = T.ArrayType(T.StructType([T.StructField("_1",T.StringType()), 
+                               T.StructField("_2",T.StringType())]))
+                               
+spark.udf.registerJavaFunction(name='DualArrayExplode', 
+            javaClassName='uk.gov.moj.dash.linkage.DualArrayExplode', returnType=rt)
+                                
+                                
                                 
 ```
 
