@@ -19,7 +19,7 @@ import scala.math.log
 import scala.math.exp
  
 class Logit extends UDF1[Double, Double] {
-  override def call(x: Double): Double = log(x / (1.0 - x))
+  override def call(x: Double): Double =  (log(x / (1.0 - x))).toDouble
 }
 
 
@@ -32,7 +32,7 @@ object Logit {
 
 
 class Expit extends UDF1[Double, Double] {
-  override def call(x: Double): Double = 1.0 / (1.0 + exp(-x))
+  override def call(x: Double): Double =  (1.0 / (1.0 + exp(-x))).toDouble
 }
 
 
@@ -227,14 +227,14 @@ object CosineDistance {
 
 
 
-class DualArrayExplode extends UDF2[Seq[String], Seq[String], UserDefinedFunction] {
-  override  def call(x: Seq[String], y: Seq[String]):UserDefinedFunction = {
+class DualArrayExplode extends UDF2[Seq[String], Seq[String],  Seq[(String,String)]] {
+  override  def call(x: Seq[String], y: Seq[String]): Seq[(String,String)] = {
     // This has to be instantiated here (i.e. on the worker node)
-    // function to do what we want 
+    
   val DualArrayExplode =  (x: Seq[String], y: Seq[String]) => {for (a <- x; b <-y) yield (a,b)}
-  val DualArrayExplodeUDF = udf (DualArrayExplode)
 
-  return DualArrayExplodeUDF
+  DualArrayExplode(x,y)
+ 
 
   }
 }
