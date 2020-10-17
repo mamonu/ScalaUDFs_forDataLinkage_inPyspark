@@ -231,7 +231,15 @@ class DualArrayExplode extends UDF2[Seq[String], Seq[String],  Seq[(String,Strin
   override  def call(x: Seq[String], y: Seq[String]): Seq[(String,String)] = {
     // This has to be instantiated here (i.e. on the worker node)
     
-  val DualArrayExplode =  (x: Seq[String], y: Seq[String]) => {for (a <- x; b <-y) yield (a,b)}
+  val DualArrayExplode =  (x: Seq[String], y: Seq[String]) => {
+    
+    
+        if ((x != null) & (y != null)){
+    for (a <- x; b <-y) yield (a,b)
+     } else
+    {List()}
+    
+    }
 
   DualArrayExplode(x,y)
  
